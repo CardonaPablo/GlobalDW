@@ -75,7 +75,7 @@ const getRecipe = async (req, res) => {
         });
     })
     // connection.end()
-    res.json(recipes)
+    res.json(recipes.length > 0 ? recipes[0] : [])
 }
 
 module.exports = {

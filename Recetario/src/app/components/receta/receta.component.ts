@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-receta',
@@ -20,7 +21,8 @@ export class RecetaComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private api: ApiService
   ) { }
 
   ngOnInit(): void {
@@ -32,6 +34,13 @@ export class RecetaComponent implements OnInit {
   }
 
   fetchData() {
+    this.api.get(`receta/${this.id}`)
+    .subscribe(
+      ({ body }) => {
+        console.log(body);
+        this.receta.patchValue(body)
+      }
+    )
   }
 
   onSubmit() {
