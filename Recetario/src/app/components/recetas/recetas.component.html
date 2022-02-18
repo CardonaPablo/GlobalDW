@@ -6,13 +6,13 @@
 	<table class="table">
 		<tr>
 			<th>Nombre</th>
-			<th>Ingredientes</th>
+			<!-- <th>Ingredientes</th> -->
 			<th>Porciones</th>
 			<th colspan="3"> <!-- Actions--> </th>
 		</tr>
 		<tr *ngFor="let receta of recetas">
 			<td>{{receta.nombre}}</td>
-			<td>{{receta.ingredientes}}</td>
+			<!-- <td>{{receta.ingredientes}}</td> -->
 			<td>{{receta.porciones}}</td>
 			<td [routerLink]="['/receta', receta.id]">Preparar</td>
 			<td [routerLink]="['/receta', receta.id, 'edit']">Editar</td>

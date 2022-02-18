@@ -12,6 +12,7 @@ import { LayoutComponent } from './components/layout/layout.component';
 import { RecetaDetallesComponent } from './components/receta-detalles/receta-detalles.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { IngredientesComponent } from './components/ingredientes/ingredientes.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { IngredientesComponent } from './components/ingredientes/ingredientes.co
     BrowserModule,
     AppRoutingModule,
     FormsModule, 
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

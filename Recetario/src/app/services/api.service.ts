@@ -36,27 +36,27 @@ export class ApiService {
     }
 
     // GET 
-    get(endpoint: string, useToken: boolean = true, queryParams: object = {}): Observable<any> {
+    get(endpoint: string): Observable<any> {
         let url = `${this.base_url}${endpoint}`
         return this.http.get(url, this.options)
     }
 
     // POST
 
-    post(endpoint: string, data = {}, useToken: boolean = true, queryParams: object = {}): Observable<any> {
+    post(endpoint: string, data = {}): Observable<any> {
         let url = `${this.base_url}${endpoint}`
         return this.http.post(url, data, this.options)
     }
 
     // PUT 
 
-    put(endpoint: string, data:any = {}, useToken: boolean = true, queryParams: object = {}): Observable<any> {
+    put(endpoint: string, data:any = {}): Observable<any> {
         let url = `${this.base_url}${endpoint}`
         return this.http.put(url, data, this.options)
     }
 
     // DELETE
-    delete(endpoint: string, useToken: boolean = true, queryParams: object = {}): Observable<any>{
+    delete(endpoint: string): Observable<any>{
         let url = `${this.base_url}${endpoint}`
         return this.http.delete(url, this.options)
     }

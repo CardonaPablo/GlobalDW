@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-recetas',
@@ -7,24 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RecetasComponent implements OnInit {
 
-  recetas: any[] = [
-    {
-      id: 1,
-      nombre: "Enchiladas",
-      ingredientes: "3/6",
-      porciones: 2
-    },
-    {
-      id: 2,
-      nombre: "Caldo de Pollo",
-      ingredientes: "0/9",
-      porciones: 5
-    }
-  ]
+  recetas: any[] = []
 
-  constructor() { }
+  constructor(
+    private api: ApiService
+  ) { }
 
   ngOnInit(): void {
+    this.fetchData()
+  }
+
+  fetchData() {
+    this.api.get("recetas")
+    .subscribe(
+      (data) => {
+        this.recetas = data.body
+      }
+    )
   }
 
   onDelete(id: number) {

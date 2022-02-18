@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-login',
@@ -15,15 +16,22 @@ export class LoginComponent implements OnInit {
   })
 
   constructor(
-    private router:  Router
+    private router:  Router,
+    private api : ApiService
   ) { }
 
   ngOnInit(): void {
   }
 
   onSubmit() {
-    
-    this.router.navigate(["/recetas"])
+    this.api.post("login", this.login.value) 
+    .subscribe(
+      (data) => {
+        console.log("response", data)
+        if(data && data.body === true)
+          this.router.navigate(["/recetas"])
+      }
+    )
   }
 
 }

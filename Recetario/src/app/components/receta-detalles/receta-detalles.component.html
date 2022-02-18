@@ -1,11 +1,11 @@
 <div class="container">
-	<h1 class="title">{{ receta ? receta.nombre: "Receta" }}</h1>
+	<h1 class="title">{{ receta?.nombre  || "Receta" }}</h1>
 	<div class="card">
 		<div class="porciones">
-			Porciones: {{ receta?.porciones}}
+			Porciones: {{ receta.porciones }}
 		</div>
 		<pre class="detalles">
-			{{ receta?.detalles }}
+			{{ receta.descripcion }}
 		</pre>
 		<app-ingredientes [edit]="false"></app-ingredientes>
 	</div>

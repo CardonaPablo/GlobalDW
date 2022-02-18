@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ApiService } from 'src/app/services/api.service';
 
 @Component({
   selector: 'app-receta-detalles',
@@ -9,18 +10,11 @@ import { ActivatedRoute } from '@angular/router';
 export class RecetaDetallesComponent implements OnInit {
 
   id = null
-  receta: any = {
-    nombre: "Enchiladas",
-    detalles: `
-      - Freir tortillas\n
-      - Hervir pollo\n
-      - Sumergir en salsa\n
-    `,
-    porciones: 4
-  }
+  receta: any 
 
   constructor(
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private api: ApiService
   ) { }
 
   ngOnInit(): void {
@@ -29,7 +23,13 @@ export class RecetaDetallesComponent implements OnInit {
   }
 
   fetchData() {
-
+    this.api.get(`receta/${this.id}`)
+    .subscribe(
+      ({ body }) => {
+        this.receta = body
+        console.log(this.receta)
+      }
+    )
   }
 
 }

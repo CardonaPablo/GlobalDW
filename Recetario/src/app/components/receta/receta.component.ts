@@ -13,7 +13,7 @@ export class RecetaComponent implements OnInit {
   id = null
   receta = new FormGroup({
     nombre: new FormControl(null, [Validators.required]),
-    detalles: new FormControl(null, [Validators.required]),
+    descripcion: new FormControl(null, [Validators.required]),
     porciones: new FormControl(1, [Validators.required])
   })
   alimentos: any[] = []
