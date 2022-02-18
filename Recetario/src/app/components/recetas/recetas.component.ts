@@ -28,6 +28,11 @@ export class RecetasComponent implements OnInit {
   }
 
   onDelete(id: number) {
-
+    this.api.delete(`receta/${id}`)
+    .subscribe(
+      (data) => {
+        this.fetchData()
+      }
+    )
   }
 }

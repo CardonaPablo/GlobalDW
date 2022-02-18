@@ -78,8 +78,66 @@ const getRecipe = async (req, res) => {
     res.json(recipes.length > 0 ? recipes[0] : [])
 }
 
+const updateRecipe = async (req, res) => {
+
+    const { id } = req.params; 
+    await new Promise((resolve, reject) => {
+
+        let sql = `UPDATE recetas SET nombre="${req.body.nombre}", descripcion="${req.body.descripcion}", porciones = ${req.body.porciones} WHERE id = ${id}`;
+
+        connection.query(sql, (error, results, fields) => {
+            if (error) {
+                reject(error)
+                return console.error(error.message);
+            }
+            console.log(results);
+            resolve(results)
+        });
+    })
+    // connection.end()
+    res.json("Updated")
+}
+
+const deleteRecipe = async (req, res) => {
+    const { id } = req.params; 
+    await new Promise((resolve, reject) => {
+
+        let sql = `DELETE FROM recetas WHERE id = ${id}`;
+
+        connection.query(sql, (error, results, fields) => {
+            if (error) {
+                reject(error)
+                return console.error(error.message);
+            }
+            console.log(results);
+            resolve(results)
+        });
+    })
+    res.json("Deleted")
+}
+
+const createRecipe = async (req, res) => {
+    await new Promise((resolve, reject) => {
+
+        const { nombre, descripcion, porciones, usuario_id } = req.body
+        let sql = `INSERT INTO recetas (nombre, descripcion, porciones, usuario_id) VALUES ("${nombre}", "${descripcion}", ${porciones}, "${usuario_id}")`;
+
+        connection.query(sql, (error, results, fields) => {
+            if (error) {
+                reject(error)
+                return console.error(error.message);
+            }
+            resolve(results)
+        });
+    })
+    res.json("Created")
+}
+
 module.exports = {
     getRecipes,
 	login,
-    getRecipe
+    getRecipe,
+    updateRecipe,
+    deleteRecipe,
+    createRecipe
 }

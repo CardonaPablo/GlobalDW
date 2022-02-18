@@ -28,8 +28,10 @@ export class LoginComponent implements OnInit {
     .subscribe(
       (data) => {
         console.log("response", data)
-        if(data && data.body === true)
+        if(data && data.body === true) {
+          localStorage.setItem("user", this.login.value.correo)
           this.router.navigate(["/recetas"])
+        }
       }
     )
   }

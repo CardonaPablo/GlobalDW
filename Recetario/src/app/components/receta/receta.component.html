@@ -9,6 +9,6 @@
 		<input formControlName="porciones" type="number" min="1">
 		<app-ingredientes></app-ingredientes>	
 	</form>
-	<button class="submit-btn" (click)="onSubmit()">Guardar</button>
+	<button class="submit-btn" [disabled]="receta.invalid" (click)="onSubmit()">Guardar</button>
 
 </div>

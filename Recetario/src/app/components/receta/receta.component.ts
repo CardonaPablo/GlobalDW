@@ -44,7 +44,18 @@ export class RecetaComponent implements OnInit {
   }
 
   onSubmit() {
-    this.router.navigate(["/recetas"])
+    let call = null
+    if(this.isNew)
+      call = this.api.post("recetas", { ...this.receta.value, usuario_id: localStorage.getItem("user") })
+    else
+      call = this.api.put(`receta/${this.id}`, { ...this.receta.value, usuario_id: localStorage.getItem("user") })
+    
+    call.subscribe(
+      ({body}) => {
+        console.log(body)
+        this.router.navigate(["/recetas"])
+      }
+    )
   }
 
 
