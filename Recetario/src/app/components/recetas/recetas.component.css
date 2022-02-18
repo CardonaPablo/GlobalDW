@@ -1,0 +1,55 @@
+* {
+	font-family: Mulish, Roboto, sans-serif;
+}
+
+body {
+	margin: 0
+}
+
+.container {
+	min-height: 100vh;
+	background-color: darkred;
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.action-row {
+	width: 80vw;
+	height: 30px;
+	display: flex;
+	justify-content: end;
+}
+
+.action-row button {
+	background-color: white;
+	color: black;
+	height: 30px;
+	width: 200px;
+	border-radius: 5px;
+}
+
+.title {
+	color: white;
+	font-size: 40px;
+	font-weight: bold;
+}
+
+.table, th, td {
+	width: 80vw;
+	background-color: white;	
+	margin-top: 20px;
+	border: black 3px solid;
+	border-collapse: collapse;
+}
+
+th, td {
+	padding: 5px;
+}
+
+th {
+	background-color: grey;
+	color: white;
+}

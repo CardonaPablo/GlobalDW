@@ -1,0 +1,33 @@
+.action-row {
+	display: flex;
+	justify-content: space-between;
+	margin: 5px 10px, 20px;
+	width: 100%;
+}
+
+.action-row button, .submit-btn {
+	background-color: darkred;
+	color: whitesmoke;
+	height: 30px;
+	width: 300px;
+	margin-top: 10px;
+	border-radius: 5px;
+}
+
+table {
+	width: 100%;
+	border: 1px solid black;
+	border-collapse: collapse;
+}
+
+th {
+	border: 1px solid black;
+	color: white;
+	background-color: darkred;
+}
+
+th, td {
+	text-align: start;
+	border-collapse: collapse;
+	padding: 2px;
+}

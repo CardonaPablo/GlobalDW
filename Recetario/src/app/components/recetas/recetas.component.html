@@ -1,0 +1,22 @@
+<div class="container">
+	<div class="title">Recetas</div>
+	<div class="action-row">
+		<button [routerLink]="['/receta/new/edit']">Agregar</button>
+	</div>
+	<table class="table">
+		<tr>
+			<th>Nombre</th>
+			<th>Ingredientes</th>
+			<th>Porciones</th>
+			<th colspan="3"> <!-- Actions--> </th>
+		</tr>
+		<tr *ngFor="let receta of recetas">
+			<td>{{receta.nombre}}</td>
+			<td>{{receta.ingredientes}}</td>
+			<td>{{receta.porciones}}</td>
+			<td [routerLink]="['/receta', receta.id]">Preparar</td>
+			<td [routerLink]="['/receta', receta.id, 'edit']">Editar</td>
+			<td (click)="onDelete(receta.id)">Borrar</td>
+		</tr>
+	</table>
+</div>

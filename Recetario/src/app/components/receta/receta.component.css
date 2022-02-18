@@ -1,0 +1,54 @@
+.container {
+	min-height: 100vh;
+	background-color: darkred;
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.title {
+	color: white;
+	font-size: 40px;
+	font-weight: bold;
+}
+
+.card {
+	border-radius: 10px;
+	background-color: white;
+	width: 60vw;
+	min-height: 400px;
+	padding: 20px;
+}
+
+label {
+	margin: 5px;
+}
+
+input, textarea {
+	width: 100%;
+	margin-bottom: 10px;
+}
+
+textarea {
+	min-height: 50px;
+}
+
+.action-row {
+	display: flex;
+	justify-content: space-between;
+	margin: 5px 10px, 20px;
+	width: 100%;
+}
+
+.submit-btn {
+	background-color: darkred;
+	color: whitesmoke;
+	height: 30px;
+	margin-top: 10px;
+	border-radius: 5px;
+	width: 60vw;
+	position: relative;
+	top: -50px;
+}

@@ -1,0 +1,14 @@
+<div class="container">
+	<h1 class="title">Receta</h1>
+	<form class="card"  (ngSubmit)="onSubmit()" [formGroup]="receta">
+		<label for="nombre">Nombre</label>
+		<input formControlName="nombre" type="text">
+		<label for="detalles">Procedimiento</label>
+		<textarea formControlName="detalles"></textarea>
+		<label for="porciones">Porciones</label>
+		<input formControlName="porciones" type="number" min="1">
+		<app-ingredientes></app-ingredientes>	
+	</form>
+	<button class="submit-btn" (click)="onSubmit()">Guardar</button>
+
+</div>

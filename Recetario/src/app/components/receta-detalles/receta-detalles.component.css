@@ -1,0 +1,29 @@
+.container {
+	min-height: 100vh;
+	background-color: darkred;
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.title {
+	color: white;
+	font-size: 40px;
+	font-weight: bold;
+}
+
+.card {
+	border-radius: 10px;
+	background-color: white;
+	width: 60vw;
+	min-height: 400px;
+	padding: 30px;
+}
+
+.porciones {
+	margin: 10px;
+	width: 100%;
+	text-align: end;
+}
